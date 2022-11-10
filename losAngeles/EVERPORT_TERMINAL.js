@@ -1,75 +1,166 @@
 const utility = require("../../utility");
 const payloads = require("../requestPayload");
-const DOM_ELEMENTS = require("../DOM");
+const DOM = require("../DOM");
+const { weekDay } = require("../constant");
 const {
   handleError,
   errorMessage,
 } = require("../../utility/helpers/errorHandling");
-const moment = require("moment");
-const { laTimeZone } = require("../constant");
-require("moment-timezone");
 
-const EVERPORT_TERMINAL = async () => {
+const APM_TERMINAL = async () => {
   const browser = await utility.browser();
-  let ourData = [];
-
-  const nowDate = moment().tz(laTimeZone).format("MM/DD");
+  let loop = false;
+  let rawText = [];
+  let tempArr = [];
+  const shiftArray = [];
+  const defaultShift = {};
 
   try {
     const page = await browser.newPage();
-    await page.goto(payloads["EVERPORT_TERMINAL"][0]);
-    await page.waitForSelector(DOM_ELEMENTS.EVERPORT_TERMINAL[0]);
-    await page.click(DOM_ELEMENTS.EVERPORT_TERMINAL[0]);
+    page.setDefaultNavigationTimeout(0);
+    await page.goto(payloads["APM_TERMINAL"][0]);
 
-    let table1 = await page.evaluate((DOM_ELEMENTS) => {
-      return $(DOM_ELEMENTS.EVERPORT_TERMINAL[1])
-        .find(DOM_ELEMENTS.EVERPORT_TERMINAL[2])
-        .map(function () {
-          return $(this).text().trim().replaceAll(/\t|\n/g, " ");
-        })
-        .toArray();
-    }, DOM_ELEMENTS);
+    const rawData = await page.evaluate(
+      (DOM, loop, tempArr, rawText) => {
+        return $(DOM.APM[0])
+          .find(DOM.APM[1])
+          .map(function () {
+            const text = $(this).text().trim().toUpperCase();
+            if (text === DOM.APM[2]) {
+              loop = true;
+            } else if (text.includes(DOM.APM[3])) {
+              loop = false;
+            } else if (loop) {
+              return $(this).text().trim();
+            }
+          })
+          .get();
+      },
+      DOM,
+      loop,
+      tempArr,
+      rawText
+    );
 
-    let table2 = await page.evaluate((DOM_ELEMENTS) => {
-      return $(DOM_ELEMENTS.EVERPORT_TERMINAL[3])
-        .find(DOM_ELEMENTS.EVERPORT_TERMINAL[4])
-        .map(function () {
-          return $(this).text().trim().replaceAll(/\t|\n/g, " ");
-        })
-        .get();
-    }, DOM_ELEMENTS);
+    rawData.map((text, index) => {
+      if (text.includes("day") && !text.includes("CLOSED") && tempArr.length) {
+        rawText.push(tempArr);
+        tempArr = [];
+      } else if (rawData.length - 1 == index) {
+        rawText.push(tempArr);
+      }
+      tempArr.push(text);
+    });
 
-    if (table1.includes(nowDate)) {
-      ourData.push(...table1);
-    } else {
-      ourData.push(...table2);
-    }
+    rawText.map((raw) => {
+      const day = raw
+        .slice(0, 1)
+        .toString()
+        .split(" ")
+        .filter((fil) => fil.includes("day"));
 
-    const firstShiftIndex = ourData.indexOf("1st Shift");
-    const secondShiftIndex = ourData.indexOf("2nd Shift");
-
-    const dayAndDate = ourData.slice(0, firstShiftIndex);
-    const firstShift = ourData.slice(firstShiftIndex, secondShiftIndex);
-    const secondShift = ourData.slice(secondShiftIndex);
-
-    const gateHours = firstShift
-      .slice(1)
-      .filter(Boolean)
-      .map((item, index) => {
-        return {
-          day: dayAndDate[index + 1],
-          shift1: "07:00 - 16:00",
-          shift2: "18:00 - 02:00",
-          status1: item === "CLOSED" ? "CLOSED" : "OPEN",
-          status2: secondShift[index + 1] === "CLOSED" ? "CLOSED" : "OPEN",
-        };
-      });
+      const firstShift = raw[1].match(/(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]/g);
+      const secondShift = raw[2].match(/(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]/g);
+      if (firstShift?.length) {
+        defaultShift.shift1 = `${firstShift[0]} - ${firstShift[1]}`;
+        defaultShift.shift2 = `${secondShift[0]} - ${secondShift[1]}`;
+      }
+      if (raw[1].includes("day")) {
+        const value1 = raw[1].split(",");
+        const value2 = raw[2].split(",");
+        const firstStatus =
+          value1[0].includes("OPEN") || value1[0]?.includes("Full")
+            ? "OPEN"
+            : "CLOSED";
+        const secondStatus =
+          value1[1].includes("OPEN") || value1[1]?.includes("Full")
+            ? "OPEN"
+            : "CLOSED";
+        const thirdStatus =
+          value2[0].includes("OPEN") || value2[1]?.includes("Full")
+            ? "OPEN"
+            : "CLOSED";
+        shiftArray.push(
+          {
+            day: day[0]?.toUpperCase(),
+            shift1: firstShift?.length
+              ? `${firstShift[0]} - ${firstShift[1]}`
+              : defaultShift.shift1,
+            shift2: secondShift?.length
+              ? `${secondShift[0]} - ${secondShift[1]}`
+              : defaultShift.shift2,
+            status1: firstStatus,
+            status2: secondStatus,
+          },
+          {
+            day: day[1]?.toUpperCase(),
+            shift1: firstShift?.length
+              ? `${firstShift[0]} - ${firstShift[1]}`
+              : defaultShift.shift1,
+            shift2: secondShift?.length
+              ? `${secondShift[0]} - ${secondShift[1]}`
+              : defaultShift.shift2,
+            status1: thirdStatus,
+            status2: thirdStatus,
+          }
+        );
+      } else {
+        const firstStatus =
+          raw[1].includes("OPEN") || raw[1].includes("Full")
+            ? "OPEN"
+            : "CLOSED";
+        const secondStatus =
+          raw[2].includes("OPEN") || raw[2].includes("Full")
+            ? "OPEN"
+            : "CLOSED";
+        let loopDay = false;
+        if (day.length > 1) {
+          weekDay.forEach((dy) => {
+            if (dy.name === day[0].toUpperCase()) {
+              loopDay = true;
+              shiftArray.push({
+                day: dy.name,
+                shift1: `${firstShift[0]} - ${firstShift[1]}`,
+                shift2: `${secondShift[0]} - ${secondShift[1]}`,
+                status1: firstStatus,
+                status2: secondStatus,
+              });
+            } else if (dy.name === day[1].toUpperCase()) {
+              loopDay = false;
+              shiftArray.push({
+                day: dy.name,
+                shift1: `${firstShift[0]} - ${firstShift[1]}`,
+                shift2: `${secondShift[0]} - ${secondShift[1]}`,
+                status1: firstStatus,
+                status2: secondStatus,
+              });
+            } else if (loopDay) {
+              shiftArray.push({
+                day: dy.name,
+                shift1: `${firstShift[0]} - ${firstShift[1]}`,
+                shift2: `${secondShift[0]} - ${secondShift[1]}`,
+                status1: firstStatus,
+                status2: secondStatus,
+              });
+            }
+          });
+        } else {
+          shiftArray.push({
+            day: day[0]?.toUpperCase(),
+            shift1: `${firstShift[0]} - ${firstShift[1]}`,
+            shift2: `${secondShift[0]} - ${secondShift[1]}`,
+            status1: firstStatus,
+            status2: secondStatus,
+          });
+        }
+      }
+    });
 
     await browser.close();
-    const response = {
-      gateHours,
+
+    return {
+      gateHours: shiftArray,
     };
-    return response;
   } catch (error) {
     await browser.close();
     handleError(error);
@@ -77,4 +168,4 @@ const EVERPORT_TERMINAL = async () => {
   }
 };
 
-module.exports = EVERPORT_TERMINAL;
+module.exports = APM_TERMINAL;
