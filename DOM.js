@@ -68,7 +68,7 @@ const ITS_TERMINAL = {
 
 const LBCT = {
   0: "#TruckGateContentWrap > div:nth-child(2) > table > tbody",
-  1: "tr",
+  1: "tr>td",
   2: "td",
 };
 

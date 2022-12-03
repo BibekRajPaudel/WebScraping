@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <h2>{{venueUrl}}</h2>
+    <div id="overview">
+        <div class="vc-bookings-details ng-scope">
+            <section class="vc-panel">
+                </div><!-- end ngIf: booking.scheduledTimeIn -->
+                <!-- ngIf: booking.scheduledTimeIn --><div class="row ng-scope" ng-if="booking.scheduledTimeIn">
+                  <h3 class="col-sm-6 vc-bookings-details_header-item">
+                    <strong ng-bind=" booking.scheduledTimeIn | vcdate " class="ng-binding">{{scheduledTimeIn}}</strong>
+                    <span>until</span>
+                    <strong ng-bind="booking.scheduledTimeOut | vcdate" class="ng-binding">{{scheduledTimeOut}}</strong>
+                  </h3>
+                </div><!-- end ngIf: booking.scheduledTimeIn -->
+                <!-- ngIf: booking.scheduledTimeIn --><h3 ng-if="booking.scheduledTimeIn" class="vc-bookings-details_company vc-bookings-details_header-item ng-scope">
+                  <span ng-bind="getTypeOfBooking() | translate" class="ng-binding">Delivering to</span>
+                </h3><!-- end ngIf: booking.scheduledTimeIn -->
+                <div class="vc-bookings-wrap row">
+                  <!-- ngIf: booking.scheduledTimeIn --><h4 ng-if="booking.scheduledTimeIn" class="vc-bookings-details_status vc-bookings-details_header-item ng-scope col-md-6" ng-class="getColClass()">
+                    <span ng-bind="'BD_BookingStatus' | translate" class="ng-binding">Appointment Status:</span>:
+                    <strong class="vc-bookings-details_status-text is-status-text ng-binding vc-booking-status--checked-out" ng-class="booking.statusClass()" ng-bind="booking.statusText() | translate">{{status}}</strong>
+                  </h4><!-- end ngIf: booking.scheduledTimeIn -->
+                </div>
+                <div class="vc-bookings-wrap row">
+                  <!-- ngIf: booking.bookingRef --><h5 ng-if="booking.bookingRef" class="vc-bookings-details_reference vc-bookings-details_header-item ng-scope col-md-6" ng-class="getColClass()">
+                    <span ng-bind="'SH_Reference' | translate" class="ng-binding">Reference</span>:
+                    <strong class="vc-bookings-details_status-text ng-binding" ng-bind=" booking | formatBookingRef">{{booking}}</strong>
+                    <!-- ngIf: booking.recurringBoookings -->
+                  </h5><!-- end ngIf: booking.bookingRef -->
+                  <!-- ngIf: booking.accessPointName && !booking.standZone --><h5 ng-if="booking.accessPointName &amp;&amp; !booking.standZone" class="vc-bookings-details_access-point vc-bookings-details_header-item ng-scope col-md-6" ng-class="getColClass()">
+                    <span ng-bind="'SH_AccessPoint' | translate" class="ng-binding">Location</span>:
+                    <strong class="vc-bookings-details_access-point-text ng-binding" ng-bind="booking.accessPointName">{{accessPointName}}</strong>
+                  </h5><!-- end ngIf: booking.accessPointName && !booking.standZone -->
+                </div>
+                <div class="vc-bookings-wrap row">
+                </div>
+                <div class="vc-bookings-wrap row">
+                  <h5 class="vc-bookings-details_reference vc-bookings-details_header-item col-md-6" ng-class="getColClass()">
+                  </h5>
+                </div>
+              </div>
+            </section>
+          
+  
+            <div class="tab-content">
+              <!-- ngRepeat: tab in tabs --><div class="tab-pane ng-scope active" ng-repeat="tab in tabs" ng-class="{active: tab.active}" uib-tab-content-transclude="tab">
+              
+                <div class="vc-panel ng-scope">
+                  <section class="vc-panel_section">
+                    <!-- Booking actions -->
+                    <div class="vc-bookings-details_actions vc-actions">
+                    </div>
+                  </section>
+          
+                  <section class="vc-panel_section">
+                    <!-- Actual booking information -->
+                    <div class="vc-bookings-details_info">
+                      <h3 class="vc-bookings-details_info-heading ng-binding" ng-bind="'BD_BookingInformation' | translate">Booking Information</h3>
+                      <div class="row vc-bookings-details_info-row">
+                        <table class="col-xs-12 table table-hover table-condensed">
+                            <thead>
+                              <tr>
+                                <th>
+                                  <h4 ng-bind="form.form.name" class="ng-binding">Recipient</h4>
+                                </th>
+                                <th>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                       <tr ng-repeat="answer in form.answers" class="ng-scope">
+                              <td class="col-xs-7 checklist-weight ng-binding">Company:  </td>
+                              <td class="col-xs-5 ng-binding">
+                                {{companyName}}
+                              </td>
+                            </tr>
+                            <tr ng-repeat="answer in form.answers" class="ng-scope">
+                              <td class="col-xs-7 checklist-weight ng-binding">Name: </td>
+                              <td class="col-xs-5 ng-binding">
+                                {{contactName}}
+                              </td>
+                            </tr>
+                            <tr ng-repeat="answer in form.answers" class="ng-scope">
+                                <td class="col-xs-7 checklist-weight ng-binding">Email: </td>
+                                <td class="col-xs-5 ng-binding">
+                                    {{contactEmail}}
+                                </td>
+                              </tr>
+                              <tr ng-repeat="answer in form.answers" class="ng-scope">
+                                <td class="col-xs-7 checklist-weight ng-binding">Phone: </td>
+                                <td class="col-xs-5 ng-binding">
+                                    {{contactPhone}}
+                                </td>
+                              </tr>
+                              <tr ng-repeat="answer in form.answers" class="ng-scope">
+                                <td class="col-xs-7 checklist-weight ng-binding">SCAC code: </td>
+                                <td class="col-xs-5 ng-binding">
+                                    {{scacCode}}
+                                </td>
+                              </tr>
+                           </tbody>
+                          </table>
+                          <table class="col-xs-12 table table-hover table-condensed">
+                            <thead>
+                              <tr>
+                                <th>
+                                  <h4 ng-bind="form.form.name" class="ng-binding">Booking</h4>
+                                </th>
+                                <th>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                       <tr ng-repeat="answer in form.answers" class="ng-scope">
+                              <td class="col-xs-7 checklist-weight ng-binding">Made by:  </td>
+                              <td class="col-xs-5 ng-binding">
+                                {{contactName}}
+                              </td>
+                            </tr>
+                            <tr ng-repeat="answer in form.answers" class="ng-scope">
+                              <td class="col-xs-7 checklist-weight ng-binding">Company: </td>
+                              <td class="col-xs-5 ng-binding">
+                                {{companyName}}
+                              </td>
+                            </tr>
+                            <tr ng-repeat="answer in form.answers" class="ng-scope">
+                                <td class="col-xs-7 checklist-weight ng-binding">Email: </td>
+                                <td class="col-xs-5 ng-binding">
+                                  {{contactEmail}}
+                                </td>
+                              </tr>
+                              <tr ng-repeat="answer in form.answers" class="ng-scope">
+                                <td class="col-xs-7 checklist-weight ng-binding">Actual out: </td>
+                                <td class="col-xs-5 ng-binding">
+                                    {{timeOut}}
+                                </td>
+                              </tr>
+                           </tbody>
+                          </table>
+                      </div>
+                      <div class="row vc-bookings-details_info-row">
+                        <div class="col-xs-12 col-sm-6"> <!--Driver -->
+                          <dl class="vc-data-list">
+                            <!-- <dl-item label="'SH_Company' | translate" value="booking.vehicleCompany"></dl-item> -->
+                            <dl-item label="'SH_Name' | translate" value="booking.driverFullName()" class="ng-isolate-scope"><!-- ngIf: value --><!-- ngIf: value --></dl-item>
+                          </dl>
+                        </div>
+                        <table class="col-xs-12 table table-hover table-condensed">
+                            <thead>
+                              <tr>
+                                <th>
+                                  <h4 ng-bind="form.form.name" class="ng-binding">Transaction</h4>
+                                </th>
+                                <th>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                       <tr ng-repeat="answer in form.answers" class="ng-scope">
+                              <td class="col-xs-7 checklist-weight ng-binding">Type: </td>
+                              <td class="col-xs-5 ng-binding">
+                                {{vehicleType}}
+                              </td>
+                            </tr><tr ng-repeat="answer in form.answers" class="ng-scope">
+                              <td class="col-xs-7 checklist-weight ng-binding">Container Number: </td>
+                              <td class="col-xs-5 ng-binding">
+                                {{vehicleVrn}}
+                              </td>
+                            </tr>
+                           </tbody>
+                          </table>
+                          <table class="col-xs-12 table table-hover table-condensed">
+                            <thead>
+                              <tr>
+                                <th>
+                                  <h4 ng-bind="form.form.name" class="ng-binding">Connected Booking</h4>
+                                </th>
+                                <th>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="answer in form.answers" class="ng-scope">
+                              <td class="col-xs-7 checklist-weight ng-binding">Container Number: </td>
+                              <td class="col-xs-5 ng-binding">
+                                {{childVrn}}
+                              </td>
+                            </tr>
+                            <tr ng-repeat="answer in form.answers" class="ng-scope">
+                                <td class="col-xs-7 checklist-weight ng-binding">Steamship Line</td>
+                                <td class="col-xs-5 ng-binding">
+                                  {{childSteamshipLine}}
+                                </td>
+                              </tr>
+                           </tbody>
+                          </table>
+                          <table class="col-xs-12 table table-hover table-condensed">
+                            <thead>
+                              <tr>
+                                <th>
+                                  <h4 ng-bind="form.form.name" class="ng-binding">Delivering Company</h4>
+                                </th>
+                                <th>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="answer in form.answers" class="ng-scope">
+                              <td class="col-xs-7 checklist-weight ng-binding">Company name:</td>
+                              <td class="col-xs-5 ng-binding">
+                                {{companyName}}
+                              </td>
+                            </tr>
+                           </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="row ng-scope" ng-if="!!+venueSettings.ENABLE_CHECKLIST">
+                        <vc-booking-checklist-info booking="booking" check-edit="booking.actionAvailable('edit')
+                          &amp;&amp; booking.status != TrafficStatus.STATUS_CANCELLED
+                          &amp;&amp; booking.status != TrafficStatus.STATUS_DECLINED
+                          &amp;&amp; !editDisabled() &amp;&amp; checkEditLimit()" class="ng-isolate-scope"><br>
+          <!-- ngRepeat: form in data.forms --><div class="col-xs-10 col-xs-offset-1 ng-scope" ng-repeat="form in data.forms">
+              <table class="col-xs-12 table table-hover table-condensed">
+                <thead>
+                  <tr>
+                    <th>
+                      <h4 ng-bind="form.form.name" class="ng-binding">Auto In Gate Eligibility</h4>
+                    </th>
+                    <th>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                <!-- ngRepeat: answer in form.answers --><tr ng-repeat="answer in form.answers" class="ng-scope">
+                  <td class="col-xs-7 checklist-weight ng-binding">Auto In Gate</td>
+                  <td class="col-xs-5 ng-binding">
+                    Yes
+                  </td>
+                </tr>
+               </tbody>
+              </table>
+          </div><div class="col-xs-10 col-xs-offset-1 ng-scope" ng-repeat="form in data.forms">
+              <!-- <table class="col-xs-12 table table-hover table-condensed">
+                <thead>
+                  <tr>
+                    <th>
+                      <h4 ng-bind="form.form.name" class="ng-binding">Export (required)</h4>
+                    </th>
+                    <th>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="answer in form.answers" class="ng-scope">
+                  <td class="col-xs-7 checklist-weight ng-binding">Seal #</td>
+                  <td class="col-xs-5 ng-binding">
+                     
+                  </td>
+                </tr><tr ng-repeat="answer in form.answers" class="ng-scope">
+                  <td class="col-xs-7 checklist-weight ng-binding">Oversized Load?</td>
+                  <td class="col-xs-5 ng-binding">
+                    No
+                  </td>
+                </tr><tr ng-repeat="answer in form.answers" class="ng-scope">
+                  <td class="col-xs-7 checklist-weight ng-binding">Hazardous?</td>
+                  <td class="col-xs-5 ng-binding">
+                    No
+                  </td>
+                </tr>
+               </tbody>
+              </table> -->
+          </div>
+          </vc-booking-checklist-info>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+    
+    </div>
+
+    
+
+
+
+
+</body>
+</html>

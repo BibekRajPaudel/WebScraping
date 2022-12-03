@@ -1,13 +1,14 @@
-const utility = require("../../utility");
+const utility = require("../utility");
 const {
   handleError,
   errorMessage,
-} = require("../../utility/helpers/errorHandling");
+} = require("../utility/helpers/errorHandling");
 const payloads = require("../requestPayload");
 const DOM = require("../DOM");
 const moment = require("moment");
 const { laTimeZone } = require("../constant");
 const { splitTime } = require("../utils");
+const { get } = require("request");
 require("moment-timezone");
 
 const PCT = async () => {
@@ -52,51 +53,19 @@ const PCT = async () => {
 
     // Get Date Info
     const dateArray = await page.evaluate((DOM) => {
-      return $(DOM.PCT[6])
+      return $("body > div.container > div > div.col-sm-9 > table> tbody ")
+        .find("tr > td")
         .map(function () {
-          return $(this)
-            .find(DOM.PCT[7])
-            .map(function () {
-              return $(this)
-                .find(DOM.PCT[8])
-                .map(function () {
-                  return $(this).text().trim();
-                })
-                .get();
-            })
-            .get();
+          return $(this).text().trim();
         })
         .get();
     }, DOM);
+    console.log(dateArray, "dateArray");
 
-    for (let i = 0; i < dateArray.length; i++) {
-      const element = dateArray.slice(i, i + 32);
-      finalArray.push(element);
-      i = i + 31;
-    }
+    await browser.close();
 
-    finalArray.map((item) => {
-      if (item.includes(nowDate)) {
-        const valueArray = item;
-        valueArray.splice(0, 8);
-        const dayArray = valueArray.splice(0, 8);
-        let headerLength = dayArray.length;
-        dayArray.slice(1).forEach((text, index) => {
-          shiftArray.push({
-            day: text,
-            shift1: splitTime(valueArray[0]),
-            shift2: splitTime(valueArray[8]),
-            status1: valueArray[index + 1],
-            status2: valueArray[index + headerLength + 1],
-          });
-        });
-      }
-    });
-
-      await browser.close();
-
-      const response = {
-       gateHours: shiftArray,
+    const response = {
+      gateHours: shiftArray,
     };
     return response;
   } catch (error) {
@@ -106,4 +75,5 @@ const PCT = async () => {
   }
 };
 
+PCT()
 module.exports = PCT;

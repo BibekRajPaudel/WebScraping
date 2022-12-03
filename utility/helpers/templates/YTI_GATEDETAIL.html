@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        color: #000;
+        font-family: "Open Sans";
+        padding: 0px !important;
+        margin: 0px !important;
+        font-size: 13px;
+        direction: ltr;
+      }
+
+      /* When the actual document is set for Printers */
+      @media print {
+        .print-pread-conf {
+          width: 700px;
+          font-family: "Open Sans";
+          margin: 0 auto;
+        }
+        .print-pread-conf .headline {
+          text-align: center;
+          font-size: 18px;
+          background-color: #9f9f9f;
+          color: #ffffff;
+          padding: 10px 0 10px 0;
+        }
+        .print-pread-conf th {
+          padding: 8px 0;
+          font-size: 16px;
+        }
+        .print-pread-conf tr {
+          margin: 10px 0;
+        }
+        .print-pread-conf td {
+          padding: 5px 0;
+        }
+        .print-pread-conf td:nth-child(odd) {
+          font-weight: bold;
+        }
+      }
+
+      /* Gate Document Reprint Styles for Printers */
+      .print-doc-replica {
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      .print-doc-replica .print-wrapper {
+        font-family: Courier;
+        border: 0px none;
+        padding: 8px;
+        width: 97%;
+        height: auto;
+        float: left;
+      }
+      .print-doc-replica .header {
+        font-size: 28px;
+        float: left;
+        width: 100%;
+        word-spacing: -5px;
+      }
+      .print-doc-replica .header .left {
+        float: left;
+      }
+      .print-doc-replica .header .right {
+        float: right;
+      }
+      .print-doc-replica .col-1 {
+        float: left;
+        width: 50%;
+        overflow: hidden;
+        height: 60px;
+        padding-top: 10px;
+      }
+      .print-doc-replica .col-2 {
+        float: left;
+        width: 50%;
+        overflow: hidden;
+        height: 60px;
+        padding-top: 10px;
+        text-align: right;
+      }
+      .print-doc-replica .sub-header {
+        border-bottom: solid 1px;
+        width: 100%;
+        float: left;
+      }
+      .print-doc-replica .format {
+        margin: 3px 15px 3px 5px;
+        display: inline-block;
+        font-size: 16px;
+        line-height: 16px;
+      }
+      .print-doc-replica .sub-header .right {
+        display: inline-block;
+        position: relative;
+        top: -10px;
+        left: 180px;
+      }
+      .print-doc-replica .sub-header .format {
+        margin: 3px 70px 0 0;
+      }
+      .print-doc-replica .content {
+        border-bottom: solid 1px;
+        float: left;
+        width: 100%;
+      }
+      .print-doc-replica .content:last-child {
+        margin-bottom: 3%;
+      }
+      .print-doc-replica .content .cols {
+        width: 43%;
+        float: left;
+      }
+      .print-doc-replica .content .container {
+        font-size: 16px;
+        line-height: 14px;
+        float: left;
+      }
+      .print-doc-replica .content .column-2 {
+        margin-left: 50%;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="print-doc-replica">
+      <div class="print-wrapper">
+        <div class="header">
+          <div class="left">
+            Yusen Terminals, INC<br /><br />CUL:China United Line
+          </div>
+          <div class="right">CTR EIR: {{transId}}</div>
+        </div>
+        <div class="col-1">
+          <span class="format"><b>Type:</b> {{type}}</span><br /><span
+            class="format"
+            ><b>Truck Co.:</b> {{truckCompany}}</span
+          >
+        </div>
+        <div class="col-2">
+          <span class="right">
+            <b>Created:</b> {{createdDate}}
+            <br />
+            <b>EIRDate:</b>
+            {{eirDate}}</span
+          >
+        </div>
+        <div class="sub-header"></div>
+        <div class="content">
+          <div class="cols">
+            <span class="format"><b>DRIVER NAME:</b> </span><br /><span
+              class="format"
+              ><b>CONTAINER:</b> {{containerNo}}</span
+            ><br /><span class="format"><b>CHASSIS:</b> OWN</span><br /><span
+              class="format"
+              ><b>OWNER CHASSIS:</b> Yes</span
+            ><br /><span class="format"><b>LINE::</b>{{line}} </span><br /><span
+              class="format"
+              ><b>PORT:</b>
+            </span>
+          </div>
+          <div class="column-2">
+            <span class="format"><b>TRUCK LICENSE #:</b> {{truckId}}</span
+            ><br /><span class="format"><b>SIZE/TYPE:</b> </span><br /><span
+              class="format"
+              ><b>SIZE/TYPE:</b> </span
+            ><br /><span class="format"><b>RELEASE:</b> </span><br />
+          </div>
+        </div>
+        <div class="content">
+          <div class="cols">
+            <span class="format"><b>GENERATOR:</b></span
+            ><br /><span class="format"><b>FUEL LEVEL:</b> </span><br /><span
+              class="format"
+              ><b>TEMP:</b> </span
+            ><span class="format"><b>AIR EXCH:</b> </span><br /><span
+              class="format"
+              ><b>SEALS:</b> </span
+            ><br />
+          </div>
+          <div class="column-2">
+            <span class="format"><b>SCALE WT:</b> 0.0</span><br /><span
+              class="format"
+              ><b>GROSS WT:</b> </span
+            ><br /><span class="format"><b>CARGO WT:</b> </span>
+          </div>
+        </div>
+        <div class="column"><span class="format"> </span></div>
+      </div>
+    </div>
+  </body>
+</html>

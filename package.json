@@ -1,0 +1,34 @@
+{
+  "name": "webscraping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "DOM.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BibekRajPaudel/WebScraping.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BibekRajPaudel/WebScraping/issues"
+  },
+  "homepage": "https://github.com/BibekRajPaudel/WebScraping#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1267.0",
+    "axios": "^1.2.0",
+    "btoa": "^1.2.1",
+    "dotenv": "^16.0.3",
+    "handlebars": "^4.7.7",
+    "log4js": "^6.7.1",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.39",
+    "node-forge": "^1.3.1",
+    "pdf-parse": "^1.1.1",
+    "puppeteer": "^19.3.0",
+    "request": "^2.88.2"
+  }
+}

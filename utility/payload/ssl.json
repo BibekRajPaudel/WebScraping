@@ -1,0 +1,697 @@
+[
+  {
+    "name": "ACL/Grimaldi Group/Inarme",
+    "code": "ACLU",
+    "label": "ACL",
+    "values": [
+      "ACLU",
+      "Atlantic Container Line",
+      "ACL"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "American President Lines",
+    "code": "APL",
+    "label": "APL",
+    "values": [
+      "APL",
+      "CMA/ANL/APL",
+      "ANL/APL/CMA",
+      "CMA/ANL/APL",
+      "CMA CGM/APL"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port"
+    ]
+  },
+  {
+    "name": "ANL Singapore Pte. Ltd.",
+    "code": "ANLC",
+    "label": "ANL",
+    "values": [
+      "ANL",
+      "ANLC",
+      "CMA/ANL/APL",
+      "ANL/APL/CMA",
+      "CMA/ANL/APL"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ]
+  },
+  {
+    "name": "BAL Container Line Co., Ltd.",
+    "code": "BANR",
+    "label": "BAL",
+    "values": [
+      "BAL",
+      "BANR"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "Matson Navigation Company",
+    "code": "MATS",
+    "label": "MATSON",
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "values": [
+      "MATSON",
+      "MATS",
+      "MAT",
+      "MSK"
+    ]
+  },
+  {
+    "name": "CMA-CGM (America) LLC",
+    "code": "CMDU",
+    "label": "CMA-CGM",
+    "values": [
+      "CMA-CGM",
+      "CMDU",
+      "CMA/ANL/APL",
+      "CMA CGM/APL",
+      "ANL/APL/CMA",
+      "CMA CGM GROUP (CMA)",
+      "CMA",
+      "CMA CGM",
+      "CMD"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "COSCO Shipping Lines Co., Ltd./COSCO Shipping Lines (North America), Inc.",
+    "code": "COSU",
+    "label": "COSCO",
+    "values": [
+      "COSCO",
+      "COSU",
+      "COS",
+      "Cosco (COS)"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "Evergreen Shipping Agency (America) Corporation",
+    "code": "EGLV",
+    "label": "EVERGREEN",
+    "values": [
+      "EGLV",
+      "EVERGREEN",
+      "EGL",
+      "Evergreen (EGR)",
+      "EMC",
+      "Evergreen Line",
+      "EGR",
+      "EVG"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "Hamburg Sud North America, Inc.",
+    "code": "SUDU",
+    "label": "HAMBURG",
+    "values": [
+      "SUDU",
+      "HAMBURG",
+      "MAERSK/SAF/SEA/HSD",
+      "MAERSK / HSD / SEA",
+      "HSD",
+      "MAE/SEA/SUD",
+      "SUD"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ]
+  },
+  {
+    "name": "Hapag-Lloyd (America), Inc. as agents for Hapag-Lloyd Container Line GMBH",
+    "code": "HLCU",
+    "label": "HAPAG",
+    "values": [
+      "HAPAG",
+      "HLCU",
+      "HAP",
+      "HLC",
+      "HAPAG-LLOYD",
+      "HAPAG LLOYD AMERICA INC (HLC)",
+      "HAPAG LLOYD AMERICA INC (HCL)",
+      "Hapag Lloyd Company",
+      "HAPAG LLOYD",
+      "Hapag-Lloyd Container Line",
+      "HLL"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "HMM Co. Ltd. (Formerly:Hyundai Merchant Marine, Inc. (America)",
+    "code": "HDMU",
+    "label": "HYUNDAI",
+    "values": [
+      "HDMU",
+      "HYUNDAI",
+      "HMM",
+      "HYUNDAI MERCHANT MARINE (HMM)",
+      "Hyundai Merchant Marine",
+      "HYU",
+      "HYN",
+      "HDM"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "Maersk Line U.S.A. as agent for Maersk Line A/S dba Maersk Line/Safmarine/Maersk Domestic/Sealand",
+    "code": "MAEU",
+    "label": "MAERSK",
+    "values": [
+      "MAEU",
+      "MAERSK",
+      "MAERSK LINE",
+      "MAE",
+      "MAE/SEA/SUD",
+      "MAERSK / HSD / SEA",
+      "MAERSK/SAF/SEA/HSD",
+      "MSL"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "Mediterranean Shipping Company S.A.",
+    "code": "MSCU",
+    "label": "MSC",
+    "values": [
+      "MSCU",
+      "MSC",
+      "MEDU",
+      "(MEDU)MEDITERRANEAN",
+      "MEDITERRANEAN SHIPPING COMPANY (MSC)"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "Ocean Network Express North America, Inc./ Ocean Network Express Pte. Ltd. (ONE)",
+    "code": "ONEY",
+    "label": "ONE",
+    "values": [
+      "ONEY",
+      "ONE",
+      "OCEAN NETWORK EXPRESS (ONE)",
+      "OCEAN NETWORK EXPRESS INC.",
+      "O.N.E.",
+      "Ocean Network Express (ONE Line)",
+      "Ocean Network Express"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "OOCL (USA) Inc.as agent for Orient Overseas Container Line Limited & OOCL (Europe) Limited",
+    "code": "OOCL",
+    "label": "OOCL",
+    "values": [
+      "OOLL",
+      "OOCL",
+      "OOL",
+      "OCL",
+      "ORIENT OVERSEAS CONT LINE",
+      "OOLU",
+      "Orient Overseas Container",
+      "ORIENT OVERSEAS CONTAINER"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ]
+  },
+  {
+    "code": "SBDM",
+    "label": "SEABOARD",
+    "values": [
+      "SBDM",
+      "SEABOARD"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ]
+  },
+  {
+    "name": "SM Line Corporation",
+    "code": "SMLM",
+    "label": "SML",
+    "values": [
+      "SMLM",
+      "SML",
+      "SMC",
+      "SMLINES",
+      "SM Lines",
+      "MAERSK/SAF/SEA/HSD",
+      "SAFMARINE"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "Sea-Lead Shipping Pte. Ltd",
+    "code": "SEALEAD",
+    "label": "SEALEAD",
+    "values": [
+      "SEALEAD",
+      "SEL"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "Wan Hai Lines, Ltd.",
+    "code": "WHLC",
+    "label": "WAN HAI",
+    "values": [
+      "WHLC",
+      "WAN HAI",
+      "WHL",
+      "WAN HAI LINES"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "Yangming Marine Transport c/o Yang Ming (America) Corporation",
+    "code": "YMLU",
+    "label": "YANGMING",
+    "values": [
+      "YMLU",
+      "YANGMING",
+      "YML",
+      "YANGMING MARINE LINE",
+      "YANG MING MARINE INC (YML)",
+      "YANG MING",
+      "Yangming Marine Line",
+      "Yang Ming"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "Zim American Integrated Shipping Services Co., LLC",
+    "code": "ZIMU",
+    "label": "ZIM",
+    "values": [
+      "ZIMU",
+      "ZIM",
+      "Zim Container Services"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "IRIS Co., LLC",
+    "code": "IRIS",
+    "label": "IRIS",
+    "values": [
+      "IRIS"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "CUL",
+    "code": "CUL",
+    "label": "CUL",
+    "values": [
+      "CUL",
+      "CULV",
+      "CHINA UNITED LINES (CUL)"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "LIHUA",
+    "code": "LIHUA",
+    "label": "LIHUA",
+    "values": [
+      "LIHUA"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "LLH",
+    "code": "LLH",
+    "label": "LLH",
+    "values": [
+      "LLH"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "CHV",
+    "code": "CHV",
+    "label": "CHV",
+    "values": [
+      "CHV"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "PASHA",
+    "code": "PAS",
+    "label": "PAS",
+    "values": [
+      "PASHA"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "PLL",
+    "code": "PLL",
+    "label": "PLL",
+    "values": [
+      "PLL"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "TRANSFAR SHIPPING (TFR)",
+    "code": "TFR",
+    "label": "TRANSFAR",
+    "values": [
+      "TRANSFAR SHIPPING (TFR)",
+      "TRANSFAR",
+      "TFR",
+      "TFL",
+      "TJFH"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "EGS",
+    "code": "EGS",
+    "label": "EGS",
+    "values": [
+      "EGS"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "XPC",
+    "code": "XPC",
+    "label": "XPC",
+    "values": [
+      "XPC"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "TSF",
+    "code": "TSF",
+    "label": "TSF",
+    "values": [
+      "TSF"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "SEALEAD",
+    "code": "SEALEAD",
+    "label": "SEALEAD",
+    "values": [
+      "SEALEAD"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "SEALAND",
+    "code": "SEALAND",
+    "label": "SEALAND",
+    "values": [
+      "SEALAND",
+      "MAERSK/SAF/SEA/HSD",
+      "MAERSK / HSD / SEA",
+      "SEALAND",
+      "MAE/SEA/SUD",
+      "SEA"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "GRIMALDI",
+    "code": "GRIMALDI",
+    "label": "GRIMALDI",
+    "values": [
+      "GRIMALDI"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  },
+  {
+    "name": "TURKON",
+    "code": "TURKON",
+    "label": "TURKON",
+    "values": [
+      "TURKON",
+      "TRK"
+    ],
+    "required": [
+      "containerOwner",
+      "containerNo"
+    ],
+    "emptyRequired": [
+      "port",
+      "containerSize",
+      "containerType"
+    ]
+  }
+]

@@ -1,0 +1,291 @@
+<html><head>
+    <title>Inspection Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="/resource/css/custom/jquery-ui-1.8.5.custom.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/resource/css/ustti.jqgrid.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/resource/css/ustti.jquery.searchFilter.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/resource/css/ustti.ui4.css">
+    
+    <script type="text/javascript" src="/resource/js/jquery/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/resource/js/i18n/grid.locale-en.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery/jquery.bestupper.min.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery/jquery.validate.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery/jquery.json-2.2.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery/jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="/resource/js/CoCommon.js"></script>
+    <script type="text/javascript" src="/resource/js/CoCalendar.js"></script>
+    <script type="text/javascript" src="/resource/js/CoGrid.js"></script>
+    <script type="text/javascript" src="/resource/js/CoMessage.js"></script>
+    <script type="text/javascript" src="/resource/js/biz/arp/UI-ARP-18.js"></script>
+    <!-- 
+    <script type="text/javascript" src="/resource/js/jquery.form.js"></script> 
+    -->
+    </head>
+    <body onload="Screen_OnLoad();" data-new-gr-c-s-check-loaded="14.1060.0" data-gr-ext-installed=""> 
+    <form id="form">
+    <input type="hidden" name="checkLogin" id="checkLogin" value="true">
+    <input type="hidden" name="tmlCd" id="tmlCd" value="USLGB">
+    <input type="hidden" name="usrId" id="usrId" value="WARVALEINC">
+    
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+            <td valign="top">
+    <!--------  Top img (s)-->
+                <table width="100%" border="0" cellpadding="" cellspacing="0">
+                    <tbody><tr>
+                        <td valign="top" align="right" background="/resource/img/popup_bg.gif">
+                            <img src="/resource/img/popup_top.gif" width="100%" height="7" alt="" border="0">
+                        </td>
+                    </tr>
+                </tbody></table>
+    <!--------  Top img (e)-->
+    <!--------  Main(s)-->		
+                <table class="search" border="0" style="width:100%;">
+                    <tbody><tr>
+                        <td style="padding:0, 10, 0, 10">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="title">
+                                <tbody><tr>
+                                    <td class="title" width="18">
+                                        <img src="/resource/img/icon_title_dot.gif" width="13" height="14" alt="" border="0">
+                                    </td>
+                                    <td class="title">Inspection Report</td>
+                                </tr>
+                            </tbody></table>
+                            <table><tbody><tr><td height="5"></td></tr></tbody></table>
+                            <!-- : ( Configuration Option ) (S) -->
+                            <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                <tbody><tr>
+                                    <td class="bg">
+                                        <table border="0" style="width:100%;border:1;border-style:solid;border-color:black; ; ">
+                                            <tbody><tr>
+                                                <td align="center" colspan="8" style="width: 100%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>
+                                                        LONG BEACH,CA
+                                                    </b><br>
+                                                    STEAMSHIP COMPANY EQUIPMENT INTERHANGE AND INSPECTION REPORT
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5" style="width: 66%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>Images Not Available</b><br>
+                                                </td>
+                                                <td colspan="3" style="width: 33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>Gate Pass Number</b><br>
+                                                    {{gatePassNo}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="8" style="width:100%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>Remarks - Refer TO DAMAGE BY ITEM NUMBER, BOTH CONTAINER AND CHASSIS</b><br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>STEAMSHIP COMPANY</b><br>
+                                                    {{sscoNm}}
+                                                </td>
+                                                <td colspan="3" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>VESSEL</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="3" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>VOYAGE</b><br>
+                                                        
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>DELIVERING - RECEIVING CARRIER</b><br>
+                                                    {{trkrNm}}	
+                                                </td>
+                                                <td colspan="3" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>BOOKING/RELEASE/BILL OF LADING NUMBER</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="3" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>CARGO DESCRIPTION</b><br>
+                                                        
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>PORT OF DISCHARGE</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="3" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>FOR TRANSHIPMENT TO</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>MOVEMENT</b><br>
+                                                    {{gateMvTpCd}}
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>HAZARDOUS</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>LABELS</b><br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>CONTAINER NUMBER</b><br>
+                                                    {{eqNo}}
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>SEAL NUMBER</b><br>
+                                                        
+                                                </td>
+                                                <td colspan="2" style="width:22%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>STATUS</b><br>
+                                                    {{gateMvTpCd}}	
+                                                </td>											
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>LENGTH</b><br>
+                                                    {{chssTpszNm}}	
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>HEIGHT</b><br>
+                                                    {{tmlPrivCntrTpszNm}}											
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>TYPE</b><br>
+                                                    {{tmlPrivCntrTpszNm}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>CHASSIS NUMBER</b><br>
+                                                    {{rChssNo}}
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>CHASSIS LENGTH &amp; TYPE</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>BOOKED TEMP</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>RECEIVED TEMP</b><br>
+                                                        
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>BKD. VENT</b><br>
+                                                        
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>RCV. VENT</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>OVERSIZE</b><br>
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1" style="width:16%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>TOTAL ROAD WEIGHT</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="1" style="width:17%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>TRACKER WEIGHT</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>CHASSIS WEIGHT</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="2" style="width:22%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>CONTAINER GROSS</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="2" style="width:22%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>CONTAINER TARE</b><br>
+                                                    
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>CARGO WEIGHT</b><br>
+                                                    
+                                                </td>
+                                            </tr>										
+                                            <tr>
+                                                <td colspan="5" style="width:66%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>DRIVER INSTRUCTIONS</b><br>
+                                                    GO TO YARD PEDESTALS FOR DECKING INSTRUCTIONS
+    DROP POOL ( POP) CHASSIS IN ZZ PIT . ALL FOR OR NON-POP CHASSIS DRAY OFF TERMINAL 
+                                                </td>
+                                                <td colspan="3" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>TERMINAL</b><br>
+                                                   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="8" style="width:11%;border:1;border-style:solid;background-color:white;">
+                                                    This interchange is made subject to the terms and conditions of the current Equipment
+                                                    Interchange Agreement between the Shipping Line and the Trucker named herein.
+                                                    The trucker assumes full responsibility for any loss or damage to the equipment
+                                                    described herein, or property of others, or injury or death to person arising
+                                                    out of the use of said equipment while in possession, and hereby specifically 
+                                                    agrees to indemnify and hold harmless Total Terminals International, LLC, its agents,
+                                                    and employees from all liabilities,charges, expenses and costs on account of or
+                                                    by reason of any such deaths, injuries, liabilities, claims, suits or losses
+                                                    however occurring or damage growing out of same.
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>FOR DELIVERING CARRIER – THIS EQUIPMENT WAS <br>
+                                                    DELIVERED IN GOOD CONDITION EXCEPT AS NOTED ABOVE</b><br>
+                                                    <!-- In -->
+                                                    {{drvrLicNo}}
+                                                </td>
+                                                <td colspan="3" style="width:33%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>FOR RECEIVING CARRIER – THIS EQUIPMENT WAS <br>
+                                                    RECEIVED IN GOOD CONDITION EXCEPT AS NOTED ABOVE</b><br>
+                                                    <!-- Out -->
+                                                    
+                                                </td>
+                                                <td colspan="2" style="width:22%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>DATE AND TIME</b><br>
+                                                    {{gateIoDt}}
+                                                </td>
+                                                <td colspan="1" style="width:11%;border:1;border-style:solid;background-color:white;" valign="top">
+                                                    <b>GATE TRANSACTION NUMBER</b><br>
+                                                    
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td></tr></tbody></table>
+    <!-- : ( Configuration Option ) (S) -->
+                                    <table><tbody><tr><td height="5"></td></tr></tbody></table>						
+                                </td>
+                            </tr>
+                        </tbody></table> 
+    <!-- : ( Button : pop ) (S) -->
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
+                               <tbody><tr>
+                                   <td class="popup_bg" style="padding:5px 0px 10px 0px" align="center">
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                            <tbody><tr>
+                                            <td width="">
+                                                 <table width="100%" border="0&quot;" cellpadding="0" cellspacing="0">
+                                            <tbody><tr><td width="14"><img src="/resource/img/btn_tti1_left.gif" width="14" height="25" alt="" border="0"></td>
+                                            <td class="btn1" background="/resource/img/btn_tti1_bg.gif"><a href="javascript:Onclick=Close_OnClick();">Close</a></td>
+                                            <td><img src="/resource/img/btn_tti1_right.gif" width="6" height="25" alt="" border="0"></td></tr>
+                                              </tbody></table></td>
+                                         </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+    <!-- : ( Button : pop ) (E) -->
+            </td>
+        </tr>
+    </tbody></table>
+    </form>

@@ -1,0 +1,13 @@
+[
+    {
+        "name": "TERMINAL 30",
+        "code": "TERMINAL 30",
+        "lfdRequired": [
+            "containerNo",
+            "port",
+            "timeZone",
+            "portUsername",
+            "portPassword"
+        ]
+    }
+]
