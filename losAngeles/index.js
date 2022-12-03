@@ -36,7 +36,7 @@ const everportTerminalAsync = function () {
 const fenixAsync = () =>
   new Promise(async (resolve) => {
     try {
-      const data = await FENIX();
+      const data = await FENIXcopy();
       if (data) return resolve([null, { key: "FENIX", data }]);
       resolve(["no response", null]);
     } catch (error) {
