@@ -60,8 +60,12 @@ const PCT = async () => {
         })
         .get();
     }, DOM);
-    console.log(dateArray, "dateArray");
 
+    for (i=0; i<dateArray.length; i++){
+      const element = dateArray.slice(i, i+31)
+      finalArray.push(element)
+      i=i+32
+    }
     await browser.close();
 
     const response = {
