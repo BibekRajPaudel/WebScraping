@@ -7,7 +7,6 @@ const {
 } = require("../utility/helpers/errorHandling");
 const moment = require("moment");
 const { laTimeZone } = require("../constant");
-const { get } = require("request");
 require("moment-timezone");
 
 const FENIX = async () => {
@@ -66,6 +65,7 @@ const FENIX = async () => {
 
     }
    })
+   console.log(gateHours, "gateHours")
   
    await browser.close()
    const response = {
