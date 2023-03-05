@@ -20,7 +20,7 @@ const gateHours = async (code) => {
     if (code == 1) {
       allPromisesResolved = await Q.all([
         apmTerminalAsync(),
-        fenixAsync(),
+        //fenixAsync(),
         ttiAsync(),
         lbctAsync(),
         everportTerminalAsync(),

@@ -3,6 +3,7 @@ const app = express();
 cors = require("cors");
 const cookieParser = require("cookie-parser")
 const Router = require("./routes/apiRoutes");
+const scrape =require("./routes/gateHoursRoute")
 
 
 
@@ -17,6 +18,7 @@ app.get("/", (req, res, next) => {
 });
 
 app.use("/api/v1", Router);
+app.use("/api/v1/crud", scrape);
 
 
 module.exports = app;
