@@ -17,7 +17,7 @@ app.get("/", (req, res, next) => {
   res.send("Server started !!!!!!!!!!");
 });
 
-app.use("/api/v1", Router);
+app.use("/api/v1/gateHours", Router);
 app.use("/api/v1/crud", scrape);
 
 
