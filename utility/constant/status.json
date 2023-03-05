@@ -1,9 +1,0 @@
-{
-    "On Vessel" :{
-        "MAHER TERMINAL": ["inbound"],
-        "APM": ["container not in Yard"]
-    },
-    "Outgated": {
-        "MAHER TERMINAL": ["departed"]
-    }
-}
